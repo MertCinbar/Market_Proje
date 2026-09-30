@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClassLib
+{
+    public static class OrtakAlan
+    {
+        public static Siparis AktifSiparis = new Siparis();
+        public static Kasa kasa = new Kasa();
+
+    }
+}
