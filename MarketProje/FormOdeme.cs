@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,7 +59,9 @@ namespace MarketProje
 
         private void btnIptal_Click(object sender, EventArgs e)
         {
-
+            FormGiris f = new FormGiris();
+            f.Show();
+            this.Close();
         }
     }
 }

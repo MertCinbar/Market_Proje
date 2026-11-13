@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +13,6 @@ namespace MarketProje
 {
     public partial class FormYonetici : Form
     {
-
         public FormYonetici()
         {
             InitializeComponent();
@@ -21,12 +20,15 @@ namespace MarketProje
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double yeniFiyat = Convert.ToDouble(txtYeniFiyat.Text);
+            if (!double.TryParse(txtYeniFiyat.Text.Trim(), out double yeniFiyat) || yeniFiyat <= 0)
+            {
+                MessageBox.Show("Lütfen geçerli ve sıfırdan büyük bir fiyat giriniz.");
+                return;
+            }
 
             if (cmbUrun.Text == "Ekmek") Fiyatlar.Ekmek = yeniFiyat;
             else if (cmbUrun.Text == "Süt") Fiyatlar.Sut = yeniFiyat;
@@ -40,21 +42,35 @@ namespace MarketProje
             else if (cmbUrun.Text == "Cips") Fiyatlar.Cips = yeniFiyat;
             else if (cmbUrun.Text == "Deterjan") Fiyatlar.Deterjan = yeniFiyat;
             else if (cmbUrun.Text == "Şampuan") Fiyatlar.Sampuan = yeniFiyat;
+            else
+            {
+                MessageBox.Show("Lütfen güncellenecek ürünü seçiniz.");
+                return;
+            }
 
             MessageBox.Show("Fiyat Güncellendi");
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string yeniSifre = txtYeniSifre.Text.Trim();
+            if (string.IsNullOrEmpty(yeniSifre))
+            {
+                MessageBox.Show("Şifre alanı boş bırakılamaz.");
+                return;
+            }
+
             if (cmbRol.Text == "Yönetici")
-                Kullanici.AdminSifre = txtYeniSifre.Text;
-
+                Kullanici.AdminSifre = yeniSifre;
             else if (cmbRol.Text == "Kasiyer")
-                Kullanici.KasiyerSifre = txtYeniSifre.Text;
-
+                Kullanici.KasiyerSifre = yeniSifre;
             else if (cmbRol.Text == "Müşteri")
-                Kullanici.MusteriSifre = txtYeniSifre.Text;
+                Kullanici.MusteriSifre = yeniSifre;
+            else
+            {
+                MessageBox.Show("Lütfen şifresi güncellenecek rolü seçiniz.");
+                return;
+            }
 
             MessageBox.Show("Şifre güncellendi");
         }

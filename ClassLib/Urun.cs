@@ -1,8 +1,8 @@
-﻿namespace ClassLib
+namespace ClassLib
 {
     public class Urun
     {
-        private string ad;
+        private string ad = "";
         private double fiyat;
         //private string kategori;
         public string Ad

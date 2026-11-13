@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -89,7 +89,9 @@ namespace MarketProje
 
         private void btnKapat_Click(object sender, EventArgs e)
         {
-
+            FormMusteri f = new FormMusteri();
+            f.Show();
+            this.Close();
         }
 
 

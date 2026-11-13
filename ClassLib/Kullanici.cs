@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +8,9 @@ namespace ClassLib
 {
     public class Kullanici
     {
-        private string ad;
-        private string sifre;
-        private string rol;
+        private string ad = "";
+        private string sifre = "";
+        private string rol = "";
 
         public static string AdminSifre = "1234";
         public static string KasiyerSifre = "4321";
